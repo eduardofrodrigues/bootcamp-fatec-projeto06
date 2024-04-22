@@ -24,10 +24,25 @@ cepField.addEventListener("input", (event) => {
   }
 })
 
+function addWrongCepFeedBack() {
+  const cepFeedback = document.getElementById("cepFeedback");
+  cepFeedback.innerHTML = "CEP não econtrado!";
+  cepField.classList.add("is-invalid");
+}
+
+function addDataIntoForm(data) {
+  console.log(data);
+}
+
 cepField.addEventListener("blur", async (event) => {
   const cep = (event.target.value).replace("-", "");
-  if (cep.length === 9) {
+  if (cep.length === 8) {
     const response = await getCEP(cep);
+    if (response.erro) {
+      addWrongCepFeedBack();
+    } else {
+      addDataIntoForm(response);
+    }
   }
 })
 
