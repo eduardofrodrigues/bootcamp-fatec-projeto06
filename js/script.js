@@ -31,7 +31,17 @@ function addWrongCepFeedBack() {
 }
 
 function addDataIntoForm(data) {
-  console.log(data);
+  const address = document.getElementById("address");
+  const number = document.getElementById("number");
+  const neighborhood = document.getElementById("neighborhood");
+  const city = document.getElementById("city");
+  const province = document.getElementById("province");
+
+  address.value = data.logradouro;
+  number.removeAttribute("disabled");
+  neighborhood.value = data.bairro;
+  city.value = data.localidade;
+  province.value = data.uf;
 }
 
 cepField.addEventListener("blur", async (event) => {
