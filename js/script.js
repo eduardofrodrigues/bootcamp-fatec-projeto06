@@ -4,6 +4,7 @@ let cepData = ""
 
 const cepField = document.getElementById("cep");
 const cepFeedback = document.getElementById("cepFeedback");
+const saveButton = document.getElementById("saveButton");
 
 $('#cep').mask('00000-000');
 
@@ -15,6 +16,7 @@ cepField.addEventListener("focus", (event) => {
 })
 
 cepField.addEventListener("input", (event) => {
+  addDataIntoForm({})
   if ((event.target.value).length == 9) {
     cepField.classList.remove("is-invalid")
   }
@@ -25,6 +27,7 @@ cepField.addEventListener("input", (event) => {
 })
 
 function addWrongCepFeedBack() {
+  addDataIntoForm({})
   const cepFeedback = document.getElementById("cepFeedback");
   cepFeedback.innerHTML = "CEP não econtrado!";
   cepField.classList.add("is-invalid");
@@ -37,11 +40,13 @@ function addDataIntoForm(data) {
   const city = document.getElementById("city");
   const province = document.getElementById("province");
 
-  address.value = data.logradouro;
-  number.removeAttribute("disabled");
-  neighborhood.value = data.bairro;
-  city.value = data.localidade;
-  province.value = data.uf;
+  address.value = data.logradouro || "";
+  neighborhood.value = data.bairro || "";
+  city.value = data.localidade || "";
+  province.value = data.uf || "";
+  data.hasOwnProperty("logradouro")
+    ? number.disabled = false
+    : number.disabled = true;
 }
 
 cepField.addEventListener("blur", async (event) => {
