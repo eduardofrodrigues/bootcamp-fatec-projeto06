@@ -91,6 +91,7 @@ function salvarCadastro() {
   cadastrados.push(cadastro);
   addDataIntoTable(cadastro);
   form.reset();
+  number.disabled = true;
 }
 
 function addDataIntoTable(cadastro) {
