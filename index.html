@@ -15,7 +15,7 @@
     </header>
 
     <div class="container shadow p-5 rounded">
-        <form class="row g-3" onsubmit="return false">
+        <form class="row g-3" onsubmit="salvarCadastro(); return false" id="form">
             <div class="col-md-6">
                 <label for="name" class="form-label">Nome:</label>
                 <input type="text" class="form-control" id="name" required>
@@ -69,16 +69,7 @@
                     <th scope="col">Estado</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Eduardo Rodrigues</td>
-                    <td>Rua Dois, 64</td>
-                    <td>18000-000</td>
-                    <td>Centro</td>
-                    <td>Sorocaba</td>
-                    <td>São Paulo</td>
-                </tr>
+            <tbody id="tableBody">
             </tbody>
         </table>
     </div>
