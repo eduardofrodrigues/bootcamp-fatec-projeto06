@@ -70,6 +70,9 @@ async function getCEP(cep) {
 }
 
 function salvarCadastro() {
+
+  if (cepField.classList.contains("is-invalid")) return;
+
   const name = document.getElementById("name");
   const surname = document.getElementById("surname");
   const cep = document.getElementById("cep");
